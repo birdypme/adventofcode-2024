@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dwtac5qd4qk7o"]
+
+[node name="BtnDay1" type="Button"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Day 1"

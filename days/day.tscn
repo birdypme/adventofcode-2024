@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4ikok6ag8dqa"]
+
+[ext_resource type="Script" path="res://days/day.gd" id="1_3gw0f"]
+
+[node name="Day" type="Node2D"]
+script = ExtResource("1_3gw0f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Advent of Code 20xx"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Home" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Home"
+
+[node name="DayTitle" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Day x"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Templates" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]

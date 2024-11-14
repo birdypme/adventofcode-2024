@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccx7dmiulc4yr"]
+
+[ext_resource type="PackedScene" uid="uid://d4ikok6ag8dqa" path="res://days/day.tscn" id="1_0yxob"]
+[ext_resource type="Script" path="res://days/day1.gd" id="2_26tbo"]
+
+[node name="Day" instance=ExtResource("1_0yxob")]
+script = ExtResource("2_26tbo")
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="Line" type="RichTextLabel" parent="Templates" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

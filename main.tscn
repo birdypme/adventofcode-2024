@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3ed8q4v8vlc"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_j0s1y"]
+[ext_resource type="PackedScene" uid="uid://dwtac5qd4qk7o" path="res://day_button.tscn" id="2_yl1wb"]
+
+[node name="Main" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0s1y")
+day_button_template = ExtResource("2_yl1wb")
+
+[node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Advent of Code 20xx"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Days" type="HFlowContainer" parent="Rows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
