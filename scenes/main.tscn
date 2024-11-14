@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm3ed8q4v8vlc"]
+[gd_scene load_steps=4 format=3 uid="uid://dm3ed8q4v8vlc"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_j0s1y"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_j0s1y"]
 [ext_resource type="PackedScene" uid="uid://dwtac5qd4qk7o" path="res://day_button.tscn" id="2_yl1wb"]
+[ext_resource type="PackedScene" uid="uid://cqmupplk1pme4" path="res://scenes/snow.tscn" id="3_u3dto"]
 
 [node name="Main" type="MarginContainer"]
 anchors_preset = 15
@@ -19,7 +20,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Advent of Code 20xx"
+text = "Advent of Code 2024"
 fit_content = true
 autowrap_mode = 0
 
@@ -27,3 +28,5 @@ autowrap_mode = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Snow" parent="." instance=ExtResource("3_u3dto")]

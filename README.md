@@ -1,4 +1,3 @@
-# Advent of Code Template for Godot
+# Advent of Code 2024
 
-This is a simple template to write and visualize advent of code solutions with Godot.
-
+Advent of Code 2024

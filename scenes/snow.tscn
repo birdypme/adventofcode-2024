@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqmupplk1pme4"]
+
+[ext_resource type="Material" uid="uid://bdvi8b2u0skmp" path="res://scenes/snow_particle_material.tres" id="1_a6rri"]
+[ext_resource type="Script" path="res://scenes/snow.gd" id="1_vhl73"]
+
+[node name="Snow" type="Node2D"]
+script = ExtResource("1_vhl73")
+
+[node name="ParticleGenerators" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticleGenerators"]
+amount = 16
+process_material = ExtResource("1_a6rri")
+lifetime = 10.0

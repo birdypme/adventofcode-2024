@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="advent-template"
-run/main_scene="res://main.tscn"
+config/name="advent-2024"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 

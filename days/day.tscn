@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4ikok6ag8dqa"]
+[gd_scene load_steps=3 format=3 uid="uid://d4ikok6ag8dqa"]
 
 [ext_resource type="Script" path="res://days/day.gd" id="1_3gw0f"]
+[ext_resource type="PackedScene" uid="uid://cqmupplk1pme4" path="res://scenes/snow.tscn" id="2_lg3ml"]
 
 [node name="Day" type="Node2D"]
 script = ExtResource("1_3gw0f")
+
+[node name="Snow" parent="." instance=ExtResource("2_lg3ml")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -16,25 +19,30 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Advent of Code 20xx"
+text = "Advent of Code 2024"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Home" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Home" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Home"
 
-[node name="DayTitle" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="DayTitle" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -44,4 +52,4 @@ autowrap_mode = 0
 
 [node name="Templates" type="Node2D" parent="."]
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/Home" to="." method="_on_home_pressed"]
