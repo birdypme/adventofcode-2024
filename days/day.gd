@@ -13,8 +13,8 @@ func _process(delta):
 func _on_home_pressed() -> void:
     get_tree().change_scene_to_file('res://main.tscn')
 
-func read_input() -> PackedStringArray:
-    return AdventParser.read_input(self.day_number)
+func read_input(prefix: String='data', suffix: String='') -> PackedStringArray:
+    return AdventParser.read_input(self.day_number, prefix, suffix)
 
 func get_template(name: String) -> Node:
     return templates.find_child(name)
