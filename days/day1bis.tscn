@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2mngdd4aecc"]
+
+[ext_resource type="PackedScene" uid="uid://d4ikok6ag8dqa" path="res://days/day.tscn" id="1_k7h2o"]
+[ext_resource type="Script" path="res://days/day1bis.gd" id="2_7ehpn"]
+
+[node name="Day" instance=ExtResource("1_k7h2o")]
+script = ExtResource("2_7ehpn")
+
+[node name="VBoxContainer" parent="CanvasLayer/MarginContainer" index="0"]
+size_flags_vertical = 1
+
+[node name="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="0"]
+size_flags_vertical = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" index="0"]
+layout_mode = 2
+text = "Result"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Result" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" index="1"]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Copy" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" index="2"]
+layout_mode = 2
+text = "Copy"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="DataLines" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/DataLines" index="0"]
+layout_mode = 2
+text = "Data Lines"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Line" type="RichTextLabel" parent="Templates" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3/Copy" to="." method="_on_copy_pressed"]
