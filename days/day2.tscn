@@ -10,6 +10,16 @@ script = ExtResource("2_7lt57")
 wrong = ExtResource("3_dwcf1")
 right = ExtResource("4_j5we7")
 
+[node name="MarginContainer" parent="CanvasLayer" index="0"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" parent="CanvasLayer/MarginContainer" index="0"]
+size_flags_vertical = 1
+
+[node name="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="0"]
+size_flags_vertical = 1
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
@@ -30,7 +40,27 @@ autowrap_mode = 0
 layout_mode = 2
 text = "Copy"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer4" index="0"]
+layout_mode = 2
+text = "Result"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ResultBis" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer4" index="1"]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CopyBis" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer4" index="2"]
+layout_mode = 2
+text = "Copy"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="3"]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_vertical = 3
@@ -39,7 +69,8 @@ horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="DataLines" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" index="0"]
 layout_mode = 2
@@ -70,4 +101,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 2
 
+[node name="Status2" type="TextureRect" parent="Templates/Line" index="2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3/Copy" to="." method="_on_copy_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer4/CopyBis" to="." method="_on_copy_bis_pressed"]
