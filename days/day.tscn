@@ -51,5 +51,6 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Templates" type="Node2D" parent="."]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/Home" to="." method="_on_home_pressed"]
