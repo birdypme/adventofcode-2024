@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cidp34emevxrp"]
+
+[ext_resource type="PackedScene" uid="uid://d4ikok6ag8dqa" path="res://days/day.tscn" id="1_cn7op"]
+[ext_resource type="Script" path="res://days/day3.gd" id="2_v6wnm"]
+
+[node name="Day3" instance=ExtResource("1_cn7op")]
+script = ExtResource("2_v6wnm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Run Example" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+text = "Run Example
+"
+
+[node name="Run Data" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+text = "Run Data
+"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Run Example" to="." method="_on_run_pressed" binds= ["example"]]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/Run Data" to="." method="_on_run_pressed" binds= ["data"]]
