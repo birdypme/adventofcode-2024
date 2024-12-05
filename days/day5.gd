@@ -29,7 +29,7 @@ func parse_input(lines: PackedStringArray):
         i += 1
     return [dependencies, printable]
 
-func print_page(printable, printed, p, s, dependencies):
+func print_page(printable, printed, p, dependencies):
     if p in printed:
         return
     if p not in printable:
@@ -37,9 +37,9 @@ func print_page(printable, printed, p, s, dependencies):
     var slocal = [p]
     if p in dependencies:
         for x in dependencies[p]:
-            print_page(printable, printed, x, slocal, dependencies)
+            print_page(printable, printed, x, dependencies)
     slocal.reverse()
-    s.append_array(slocal)
+    printed.append_array(slocal)
 
 func process(lines: PackedStringArray):
     var parsed_input = parse_input(lines)
@@ -50,9 +50,7 @@ func process(lines: PackedStringArray):
     for printable in printables:
         var printed = []
         for p in printable:
-            var s = []
-            print_page(printable, printed, p, s, dependencies)
-            printed.append_array(s)
+            print_page(printable, printed, p, dependencies)
         # print(printable, ' vs ', printed)
         if str(printable) == str(printed):
             var item = int(printable[int((len(printable))/2)])
@@ -66,7 +64,21 @@ func _on_run_pressed(prefix: String='data', suffix: String=''):
 
 
 func process2(lines: PackedStringArray):
-    print('not implemented yet')
+    var parsed_input = parse_input(lines)
+    var dependencies = parsed_input[0]
+    var printables = parsed_input[1]
+    var total = 0
+    var adding = []
+    for printable in printables:
+        var printed = []
+        for p in printable:
+            print_page(printable, printed, p, dependencies)
+        # print(printable, ' vs ', printed)
+        if str(printable) != str(printed):
+            var item = int(printed[int((len(printed))/2)])
+            adding.append(item)
+            total += item
+    print(' + '.join(adding), ' = ', total)
 
 
 func _on_run_2_pressed(prefix: String='data', suffix: String=''):
