@@ -9,7 +9,7 @@
 script = ExtResource("2_aj2s5")
 running = false
 zoom_level = 0.1
-guard_speed = 1.1
+guard_speed = 10.0
 
 [node name="MarginContainer" parent="CanvasLayer" index="0"]
 offset_left = -1.0
@@ -38,20 +38,27 @@ text = "Zoom 1:1"
 layout_mode = 2
 min_value = 0.1
 max_value = 1000.0
-value = 1.1
+value = 10.1
 exp_edit = true
 update_on_text_changed = true
 suffix = "tiles/s"
 
+[node name="Coordinates" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" index="5"]
+layout_mode = 2
+text = "..."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="TileMap" type="TileMap" parent="." index="2"]
 position = Vector2(398, 96)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 tile_set = ExtResource("3_i1gur")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 1, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 131073, 0, 0, 131072, 0, 0, 65539, 1, 0, 3, 1, 0, 131075, 0, 0, 196611, 0, 0, 196610, 1, 0, 196609, 0, 0, 196608, 1, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 1, 0, 131073, 0, 0, 131072, 0, 0, 65539, 1, 0, 3, 0, 0, 131075, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 327680, 1, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 458758, 0, 0, 458759, 0, 0, 393223, 0, 0, 393222, 1, 0, 327686, 0, 0, 262150, 0, 0, 196614, 0, 0, 131078, 0, 0, 65542, 0, 0, 6, 1, 0, 7, 0, 0, 65543, 0, 0, 131079, 1, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 458757, 1, 0, 458756, 0, 0, 458755, 0, 0, 458754, 0, 0, 458753, 0, 0, 458752, 0, 0, -65534, 1, 0, -65536, 1, 0, -65535, 1, 0, -65533, 1, 0, -65532, 1, 0, -65530, 1, 0, -65531, 1, 0, -65529, 1, 0)
 
 [node name="Guard" type="Node2D" parent="TileMap" index="0"]
-position = Vector2(380, 640)
+position = Vector2(876, 1146)
 rotation = -1.57079
 
 [node name="BlinkDisc" type="Polygon2D" parent="TileMap/Guard" index="0"]
@@ -64,11 +71,35 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_42il2")
 
 [node name="Target" type="Node2D" parent="TileMap" index="1"]
-position = Vector2(376, 402)
+position = Vector2(872, 908)
 
 [node name="BlinkDisc2" type="Polygon2D" parent="TileMap/Target" index="0"]
 scale = Vector2(1, 1)
 color = Color(0.909804, 0.780392, 0, 0.533333)
+polygon = PackedVector2Array(0, -110, 40, -100, 80, -80, 100, -40, 110, 0, 100, 40, 80, 80, 40, 100, 0, 110, -40, 100, -80, 80, -100, 40, -110, 0, -100, -40, -80, -80, -40, -100)
+
+[node name="LoopSources" type="Node2D" parent="TileMap" index="2"]
+
+[node name="Paths" type="Node2D" parent="TileMap" index="3"]
+
+[node name="CoordinatesBox" type="Line2D" parent="TileMap" index="4"]
+visible = false
+points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+closed = true
+default_color = Color(0.541176, 0.156863, 0.235294, 1)
+
+[node name="LoopPath" type="Line2D" parent="Templates" index="0"]
+closed = true
+width = 26.0
+default_color = Color(0.968627, 0.870588, 0.92549, 0.509804)
+
+[node name="LoopSource" type="Node2D" parent="Templates" index="1"]
+position = Vector2(589, 540)
+scale = Vector2(0.5, 0.5)
+
+[node name="BlinkDisc2" type="Polygon2D" parent="Templates/LoopSource" index="0"]
+scale = Vector2(1, 1)
+color = Color(0.39836, 0.852975, 0.98786, 0.533333)
 polygon = PackedVector2Array(0, -110, 40, -100, 80, -80, 100, -40, 110, 0, 100, 40, 80, 80, 40, 100, 0, 110, -40, 100, -80, 80, -100, 40, -110, 0, -100, -40, -80, -80, -40, -100)
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/RunExample" to="." method="_on_run_pressed" binds= ["Example"]]

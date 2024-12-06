@@ -13,7 +13,7 @@ func _ready() -> void:
         var clone = generator.duplicate()
         generators.add_child(clone)
         clone.owner = generators
-        clone.position = Vector2((i+1) * screen_size / particle_emitters, clone.position.y)
+        clone.position = Vector2((i+1.0) * screen_size / particle_emitters, clone.position.y)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
