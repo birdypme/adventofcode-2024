@@ -14,6 +14,24 @@ func _ready() -> void:
     input_lines = self.read_input('data')
     process_lines(input_lines)
 
+func tryoperators2(s, cc, v):
+    if not cc:
+        return s == v
+    var c = cc[0]
+    var a = s + c
+    if a <= v and tryoperators2(a, cc.slice(1), v):
+        return true
+
+    var m = s * c
+    if m <= v and tryoperators2(m, cc.slice(1), v):
+        return true
+
+    var t = int(str(s) + str(c))
+    if t <= v and tryoperators2(t, cc.slice(1), v):
+        return true
+    return false
+
+
 func tryoperators(s, cc, v):
     if not cc:
         return s == v
@@ -25,11 +43,13 @@ func tryoperators(s, cc, v):
     var m = s * c
     if m <= v and tryoperators(m, cc.slice(1), v):
         return true
+
     return false
 
 
 func process_lines(lines: PackedStringArray):
     var total = 0
+    var total2 = 0
     for line in lines:
         if not line:
             continue
@@ -45,6 +65,12 @@ func process_lines(lines: PackedStringArray):
         if tryoperators(s, components.slice(1), v):
             #print('found: ', v)
             total = total + v
+        if tryoperators2(s, components.slice(1), v):
+            total2 = total2 + v
+    # star 1:
     # 880584941917 is too low
     # 882304362421 
     print('total: ', total)
+    # star 2:
+    # 145149066755184
+    print('total2: ', total2)
