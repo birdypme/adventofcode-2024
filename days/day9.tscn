@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c77ggf0tjhkfv"]
+
+[ext_resource type="PackedScene" uid="uid://d4ikok6ag8dqa" path="res://days/day.tscn" id="1_oy05c"]
+[ext_resource type="Script" path="res://days/day9.gd" id="2_i2311"]
+
+[node name="Day9" instance=ExtResource("1_oy05c")]
+script = ExtResource("2_i2311")
